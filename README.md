@@ -5,12 +5,6 @@ This website showcases my technical skills, cybersecurity projects, and web deve
 
 ---
 
-## 🚀 Live Demo
-
-🔗 (Add your GitHub Pages link here after deployment)
-
----
-
 ## 📌 Features
 
 - Responsive design for desktop and mobile
