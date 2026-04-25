@@ -5,6 +5,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript)
 ![Node.js](https://img.shields.io/badge/Node.js-Backend-green?style=for-the-badge&logo=node.js)
 ![Express](https://img.shields.io/badge/Express.js-Server-black?style=for-the-badge&logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-brightgreen?style=for-the-badge&logo=mongodb)
 
 A modern, responsive **full-stack portfolio website** showcasing my work in **web development and cybersecurity**.
 
@@ -14,6 +15,7 @@ A modern, responsive **full-stack portfolio website** showcasing my work in **we
 
 * 🔥 Full-stack portfolio (Frontend + Backend)
 * 📬 Working contact form with email delivery
+* 🗄️ MongoDB database for storing contact submissions
 * 🛡️ Environment-based credential security
 * 🎯 Clean UI with cyber-themed design
 * 📱 Fully responsive layout
@@ -25,7 +27,9 @@ A modern, responsive **full-stack portfolio website** showcasing my work in **we
 * Smooth scrolling navigation
 * Interactive project cards
 * Real-time form validation
+* Contact form saved to **MongoDB Atlas**
 * Email integration using **Node.js + Nodemailer**
+* REST API to view all submissions (`GET /messages`)
 * Social media integration
 * Modern UI/UX design
 
@@ -45,6 +49,11 @@ A modern, responsive **full-stack portfolio website** showcasing my work in **we
 * Node.js
 * Express.js
 * Nodemailer
+* Mongoose
+
+### 🗄️ Database
+
+* MongoDB Atlas (Cloud)
 
 ---
 
@@ -58,9 +67,10 @@ portfolio-website/
 ├── script.js
 ├── server.js
 ├── package.json
+├── .env              # secrets (not pushed to GitHub)
 ├── .gitignore
 ├── profile.jpg
-├── projectlogo.jpg
+└── projectlogo.jpg
 ```
 
 ---
@@ -68,9 +78,10 @@ portfolio-website/
 ## 🔐 Security Implementation
 
 * `.env` for storing sensitive credentials
-* `.gitignore` to protect secrets
+* `.gitignore` to protect secrets from version control
 * Gmail App Password authentication
-* Basic backend validation
+* MongoDB Atlas IP whitelisting
+* Basic backend validation on all inputs
 
 ---
 
@@ -78,8 +89,38 @@ portfolio-website/
 
 Users can send messages directly through the website:
 
-* Form → API → Email
-* Fully functional backend integration
+* Form → Express API → MongoDB (saved) + Email (sent)
+* All submissions stored in MongoDB Atlas `contacts` collection
+* View all messages via `GET http://localhost:5000/messages`
+
+---
+
+## ⚙️ Setup & Run Locally
+
+1. Clone the repo
+   ```bash
+   git clone https://github.com/dev-aryansingh/portfolio-website.git
+   cd portfolio-website
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the root directory
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   EMAIL_USER=your@gmail.com
+   EMAIL_PASS=your_gmail_app_password
+   ```
+
+4. Start the server
+   ```bash
+   npm start
+   ```
+
+5. Open `index.html` in your browser
 
 ---
 
@@ -88,9 +129,10 @@ Users can send messages directly through the website:
 This project helped me understand:
 
 * Full-stack development workflow
-* API integration
+* MongoDB Atlas setup and Mongoose integration
+* REST API design
 * Environment variable management
-* Debugging real-world authentication errors
+* Debugging real-world Node.js and DNS issues
 * Git & GitHub version control
 
 ---
